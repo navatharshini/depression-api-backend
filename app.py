@@ -32,6 +32,13 @@ class InputData(BaseModel):
     CGPA: float
     Work_Pressure: int
     Job_Satisfaction: int
+    
+@app.get("/")
+
+def home():
+    return{
+        "message" : "welcome to cheerbuddy"
+    }
 
 @app.post("/predict")
 async def predict(data: InputData):
