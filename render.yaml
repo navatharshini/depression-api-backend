@@ -1,0 +1,10 @@
+# render.yaml
+services:
+  - type: web
+    name: model-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.10
