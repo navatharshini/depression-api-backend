@@ -1,10 +1,10 @@
-# render.yaml
 services:
   - type: web
     name: model-api
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
-    envVars:
+    startCommand: gunicorn app:app --workers 1 --timeout 120 --worker-class uvicorn.workers.UvicornWorker
+    env:
       - key: PYTHON_VERSION
         value: 3.9.10
+    plan: starter # Upgrade from free tier
